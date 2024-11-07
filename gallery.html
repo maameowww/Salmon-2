@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <style>
+    /* การเปลี่ยนพื้นหลังเป็นภาพ */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('bc1.jpg'); /* เปลี่ยนเป็นชื่อไฟล์ภาพพื้นหลังที่ต้องการ */
+      background-size: cover;
+      background-position: center;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* ทำให้ไม่เกิดการเลื่อนหน้าจอ */
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* กำหนดให้เป็น 3 คอลัมน์ */
+      gap: 20px; /* ระยะห่างระหว่างภาพ */
+      max-width: 90%;
+      margin: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%; /* ทำให้ภาพเป็นสี่เหลี่ยมจัตุรัส */
+      overflow: hidden;
+      border-radius: 10px; /* มุมโค้ง */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer; /* เปลี่ยนเป็น pointer เพื่อแสดงว่าเป็นปุ่มคลิกได้ */
+    }
+
+    .gallery-item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* ให้ภาพเต็มพื้นที่โดยไม่บิดเบือน */
+      transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* เพิ่ม transition สำหรับการขยายและมุมโค้ง */
+    }
+
+    /* เพิ่มการขยายภาพเมื่อเมาส์ชี้ */
+    .gallery-item:hover img {
+      transform: scale(1.3); /* ขยายภาพ 1.3 เท่าเมื่อเมาส์ชี้ */
+      z-index: 10; /* ให้ภาพขยายอยู่ด้านบน */
+      position: fixed; /* ทำให้ภาพขยายอยู่บนหน้าจอ */
+      top: 50%; /* จัดให้ภาพอยู่กลางหน้าจอในแนวตั้ง */
+      left: 50%; /* จัดให้ภาพอยู่กลางหน้าจอในแนวนอน */
+      transform: translate(-50%, -50%) scale(1.3); /* ใช้ translate เพื่อให้ตรงกลาง */
+      
+      /* จำกัดขนาดภาพเมื่อขยาย */
+      max-width: 60vw; /* กำหนดขนาดภาพสูงสุดไม่ให้เกิน 90% ของความกว้างหน้าจอ */
+      max-height: 60vh; /* กำหนดขนาดภาพสูงสุดไม่ให้เกิน 80% ของความสูงหน้าจอ */
+
+      /* เพิ่มมุมโค้งให้ภาพขยาย */
+      border-radius: 20px; /* ทำให้มุมโค้งมากขึ้นเมื่อขยาย */
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #fd0000;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #ff0000;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>เอารูปมาอวดฮ้าฟฟฟ</h1>
+
+    <div class="gallery-container">
+      <!-- รูปภาพในแกลเลอรี่ -->
+      <div class="gallery-item">
+        <img src="Pic1.png" alt="Image 1">
+      </div>
+      <div class="gallery-item">
+        <img src="Pic2.png" alt="Image 2">
+      </div>
+      <div class="gallery-item">
+        <img src="Pic3.png" alt="Image 3">
+      </div>
+      <div class="gallery-item">
+        <img src="Pic4.png" alt="Image 4">
+      </div>
+      <div class="gallery-item">
+        <img src="Pic5.png" alt="Image 5">
+      </div>
+      <div class="gallery-item">
+        <img src="Pic6.png" alt="Image 6">
+      </div>
+      <div class="gallery-item">
+        <img src="Pic7.png" alt="Image 7">
+      </div>
+      <div class="gallery-item">
+        <img src="Pic8.png" alt="Image 8">
+      </div>
+      <div class="gallery-item">
+        <img src="Pic9.png" alt="Image 9">
+      </div>
+    </div>
+    <!-- ข้อความใหม่ข้างล่าง -->
+    <div class="additional-message">
+      <p>ขอยาดอวดแค่ IC เนื่องจากหวง OC</p>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
